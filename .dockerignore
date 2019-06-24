@@ -1,0 +1,12 @@
+.DS_Store
+.git
+.gitignore
+.gitlab-ci.yml
+.mypy_cache
+.pre-commit-config.yaml
+docker-compose.yml
+docker-compose.override.yml
+docker-compose.ci.yml
+setup.cfg
+.coverage
+__pycache__

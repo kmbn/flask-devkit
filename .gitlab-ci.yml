@@ -1,0 +1,15 @@
+image: kmbn/docker-compose
+
+stages:
+  - Build
+  - Test
+
+build:
+  stage: Build
+  script:
+    - make build_ci
+
+test:
+  stage: Test
+  script:
+    - make coverage

@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:11.3
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  flask:
+    build:
+      context: .
+      args:
+        PIPENV_FLAGS: --dev
+    ports:
+      - 5000:5000
+    environment:
+      ALLOWED_HOSTS: '0.0.0.0 127.0.0.1 localhost'
+      POSTGRES_NAME: 'postgres'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_HOST: 'postgres'
+      POSTGRES_PORT: 5432
+      SECRET_KEY: 'development_key_only'
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+    driver: local
